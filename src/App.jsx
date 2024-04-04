@@ -1,9 +1,9 @@
-import styles from './App.module.scss';
+import './App.scss';
 
 function App() {
 
   return (
-    <div className={styles.topHeader}>
+    <div className="topHeader">
       <h1>Hello world</h1>
     </div>
   )
