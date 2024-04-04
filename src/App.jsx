@@ -1,11 +1,10 @@
 import './App.scss';
+import { Layout } from './main';
 
 function App() {
 
   return (
-    <div className="topHeader">
-      <h1>Hello world</h1>
-    </div>
+    <Layout />
   )
 }
 
