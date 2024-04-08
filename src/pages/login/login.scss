@@ -23,7 +23,7 @@
             background: $gradient-primary, url("https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600") center;
             background-size: cover;
             width: 50vw;
-           
+
             @include tablet{
                 flex: 1;
                 max-width: 35vw;
@@ -51,14 +51,12 @@
                 color:$darkTextColor;
            }
            button{
-            height: 50px;
             border-radius: 5px;
             border: none;
             background-color: $tertiary;
             color: $textColor;
             padding: 15px 20px;
             margin: 10px 0;
-            font-family: "Roboto Flex", sans-serif;
             cursor: pointer;
             text-transform: uppercase;
             
