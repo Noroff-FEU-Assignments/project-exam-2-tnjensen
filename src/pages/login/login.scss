@@ -7,25 +7,25 @@
     .card{
         display: flex;
         flex-direction: column-reverse;
-        width: 50vw;
+        margin-top: 60px;
 
         @include tablet{
             flex-direction: row-reverse;
-            width: 80%;
-            height: 50vh;
+            width: 75%;
         }
 
-        .loginLeft{
+        .login-left{
+            flex: 1;
             padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             background: $gradient-primary, url("https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600") center;
             background-size: cover;
+            width: 50vw;
            
             @include tablet{
                 flex: 1;
-                margin: 40px 20px 0 0;
                 max-width: 35vw;
             }
             @include large{
@@ -73,13 +73,16 @@
                 }
            }
         }
-        .loginRight{
+        .login-right{
+            flex: 1;
             padding: 40px;
             display: flex;
+            background-color: $form-background;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 20px;
+            width: 50vw;
 
             @include tablet{
                 align-items: center;
@@ -92,7 +95,7 @@
 
                 input{
                     border: none;
-                    background-color: $form-background;
+                    background-color: $darkTextColor;
                     padding: 20px 10px;
                     width: 100%;
                 }

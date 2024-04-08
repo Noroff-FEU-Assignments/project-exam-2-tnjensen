@@ -7,24 +7,25 @@
     .card{
         display: flex;
         flex-direction: column-reverse;
+        margin-top: 60px;
 
         @include tablet{
             flex-direction: row-reverse;
-            width: 80%;
-            height: 50vh;
+            width: 75%;
         }
 
         .register-left{
+            flex: 1;
             padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             background: $gradient-primary, url("https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600") center;
             background-size: cover;
-    
+            width: 50vw;
+           
             @include tablet{
                 flex: 1;
-                margin: 40px 20px 0 0;
                 max-width: 35vw;
             }
             @include large{
@@ -50,10 +51,11 @@
                 color:$darkTextColor;
            }
            button{
+            height: 50px;
             border-radius: 5px;
             border: none;
-            background-color: $tertiary;
-            color: $textColor;
+            background-color: $secondary;
+            color: $darkTextColor;
             padding: 15px 20px;
             margin: 10px 0;
             font-family: "Roboto Flex", sans-serif;
@@ -61,7 +63,8 @@
             text-transform: uppercase;
             
                 &:hover{
-                    background-color:$tertiary-hover;
+                    background-color:$secondary-hover;
+
                 }
                 &:focus, &:active{
                     outline:none;
@@ -72,12 +75,15 @@
            }
         }
         .register-right{
+            flex: 1;
             padding: 40px;
             display: flex;
+            background-color: $form-background;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 20px;
+            width: 50vw;
 
             @include tablet{
                 align-items: center;
@@ -90,15 +96,15 @@
 
                 input{
                     border: none;
-                    background-color: $form-background;
+                    background-color: $darkTextColor;
                     padding: 20px 10px;
                     width: 100%;
                 }
 
                 button{
                     border: none;
-                    background-color: $secondary;
-                    color: white;
+                    background-color: $tertiary;
+                    color: $textColor;
                     padding: 15px 20px;
                     border-radius: 5px;
                     cursor: pointer;
@@ -106,7 +112,7 @@
                     text-transform: uppercase;
 
                     &:hover{
-                        background-color: $secondary-hover;
+                        background-color: $tertiary-hover;
                     }
                 }
             }
