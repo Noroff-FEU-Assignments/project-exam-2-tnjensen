@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import {
@@ -7,15 +7,17 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
-import Login from './pages/login/Login.jsx';
 import Register from './pages/register/Register.jsx';
 import Home from './pages/home/Home.jsx';
 import Profile from './pages/profile/Profile.jsx';
+import Login from './pages/login/Login.jsx';
+import { useLocalStorage } from './hooks/useLocalStorage.js';
 
 const ProtectedRoute = ({children}) => {
-  const currentUser = false;
-  if(!currentUser){
-    return <Navigate to="/login" />
+  const [token,setToken] = useLocalStorage("token");
+
+  if(!token){
+    return <Login setToken={setToken} />
   }
   return children;
 }

@@ -1,7 +1,30 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import './login.scss';
+import {  useState } from 'react';
+import PropTypes from 'prop-types';
+import { loginUser } from '../../components/shared/loginUser.js';
 
-function Login(){
+export default function Login({setToken,id}){
+    const navigate = useNavigate();
+    const [email,setEmail] = useState();
+    const [password,setPassword] = useState();
+    const [error,setError] = useState(null);
+
+    const handleSubmit = async e =>{
+        e.preventDefault();
+        try{
+            const user = await loginUser({
+                email,
+                password
+            });
+            setToken(user.accessToken);
+            navigate("/");
+        }
+        catch(err){
+            setError(err);
+        }
+    }
+   
     return(
         <div className="login">
             <div className="card">
@@ -14,15 +37,18 @@ function Login(){
                         </Link>
                 </div>
                 <div className="login-right">
-                    <h1>Login</h1>
+                    <h1>Sign in</h1>
                     <form>
-                        <input placeholder="email" aria-label="email" type="email" className="loginEmail" />
-                        <input placeholder="password" aria-label="password" type="password" className="loginPassword" minLength="6" />
-                        <button>Log in</button>       
+                        <input placeholder="email" aria-label="email" type="email" onChange={e => setEmail(e.target.value)} />
+                        <input placeholder="password" aria-label="password" type="password" onChange={e => setPassword(e.target.value)} minLength="6" />
+                        {error && error }
+                        <button type='submit' onClick={handleSubmit}>Login</button>       
                     </form>          
                 </div>
             </div>
         </div>
     )
 } 
-export default Login;
+/* Login.propTypes = {
+    setToken: PropTypes.func.isRequired
+}; */
