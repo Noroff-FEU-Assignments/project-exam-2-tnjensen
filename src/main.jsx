@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import {
+  BrowserRouter,
   createBrowserRouter,
-  Navigate,
   Outlet,
   RouterProvider,
 } from "react-router-dom";
+import { AuthProvider } from './hooks/useAuth.jsx';
 import Register from './pages/register/Register.jsx';
 import Home from './pages/home/Home.jsx';
 import Profile from './pages/profile/Profile.jsx';
 import Login from './pages/login/Login.jsx';
 import { useLocalStorage } from './hooks/useLocalStorage.js';
+import Header from './components/header/Header.jsx';
 
 const ProtectedRoute = ({children}) => {
   const [token,setToken] = useLocalStorage("token");
@@ -23,7 +25,15 @@ const ProtectedRoute = ({children}) => {
 }
 export const Layout = () => {
   return(
-    <Outlet />
+    <div className='layout'>
+      <Header />
+    <div style={{display: "flex"}}>
+      <div style={{flex:6}}>
+        <Outlet />
+        </div>
+    </div>
+    </div>
+   
   )
 }
 const router = createBrowserRouter([
@@ -53,8 +63,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}>
-    <App />
-    </RouterProvider>
+    {/* <RouterProvider router={router}> */}
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+      </BrowserRouter>
+    {/* </RouterProvider> */}
   </React.StrictMode>,
 )

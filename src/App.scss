@@ -1,6 +1,6 @@
 * {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0;
 }
 body{
   font-family: "Nunito Sans", Verdana, Geneva, Tahoma, sans-serif;
@@ -8,8 +8,12 @@ body{
 h1,h2,h3,h4,h5,h6{
   font-family: Lora, 'Times New Roman', Times, serif;
 }
-.topHeader{
-  text-align: center;
+a{
+    text-decoration: none;
+
+    &:hover{
+        text-decoration: underline;
+    }
 }
 
 $primary: #d33891;
