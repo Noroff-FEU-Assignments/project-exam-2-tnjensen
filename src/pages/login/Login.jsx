@@ -1,10 +1,10 @@
 import { Link, useNavigate} from 'react-router-dom';
 import './login.scss';
 import {  useState } from 'react';
-import PropTypes from 'prop-types';
-import { loginUser } from '../../components/shared/loginUser.js';
+import { loginUser } from '../../components/shared/loginUser';
 
-export default function Login({setToken,id}){
+
+export default function Login({setToken}){
     const navigate = useNavigate();
     const [email,setEmail] = useState();
     const [password,setPassword] = useState();
@@ -49,6 +49,3 @@ export default function Login({setToken,id}){
         </div>
     )
 } 
-/* Login.propTypes = {
-    setToken: PropTypes.func.isRequired
-}; */

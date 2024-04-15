@@ -1,11 +1,11 @@
-import {url} from '../../constants/api.js';
+import {apiUrl} from '../../constants/api.js';
 import './posts.scss';
 import useApi from '../../hooks/useApi.js';
 import Post from '../post/Post.jsx';
 
 function Posts(){
-    const {data:posts, isLoading,isError} = useApi(url);
-
+    const {data:posts,isLoading,isError} = useApi(apiUrl);
+    
     if(isLoading){
         return <div>Loading...</div>
     }

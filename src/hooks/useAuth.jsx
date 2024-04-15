@@ -5,30 +5,30 @@ import { useLocalStorage } from "./useLocalStorage";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useLocalStorage("token", "");
+  const [user, setUser] = useLocalStorage("token", null);
   const navigate = useNavigate();
 
   // call this function when you want to authenticate the user
   const login = async (data) => {
-    setToken(data);
+    setUser(data);
     navigate("/");
   };
 
   // call this function to sign out logged in user
   const logout = () => {
-    setToken("");
+    setUser(null);
     navigate("/", { replace: true });
   };
 
   const value = useMemo(
     () => ({
-      token,
+      user,
       login,
       logout,
     }),
-    [token]
+    [user]
   );
-  return <AuthContext.Provider value={{login, logout, token}}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{login, logout, user}}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {

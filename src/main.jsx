@@ -14,6 +14,8 @@ import Profile from './pages/profile/Profile.jsx';
 import Login from './pages/login/Login.jsx';
 import { useLocalStorage } from './hooks/useLocalStorage.js';
 import Header from './components/header/Header.jsx';
+import Sidebar from './components/sidebar/Sidebar.jsx';
+import Rightbar from './components/rightbar/Rightbar.jsx';
 
 const ProtectedRoute = ({children}) => {
   const [token,setToken] = useLocalStorage("token");
@@ -28,9 +30,11 @@ export const Layout = () => {
     <div className='layout'>
       <Header />
     <div style={{display: "flex"}}>
+      <Sidebar />
       <div style={{flex:6}}>
         <Outlet />
         </div>
+        <Rightbar />
     </div>
     </div>
    

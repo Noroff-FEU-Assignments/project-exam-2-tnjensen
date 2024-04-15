@@ -3,9 +3,9 @@ import './App.scss';
 import { Layout } from './main';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import Login from './pages/login/Login';
-import { Home } from '@mui/icons-material';
 import Profile from './pages/profile/Profile';
 import Register from './pages/register/Register';
+import Home from './pages/home/Home';
 
 const ProtectedRoute = ({children}) => {
   const [token,setToken] = useLocalStorage("token");
